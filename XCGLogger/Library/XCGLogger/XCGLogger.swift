@@ -286,7 +286,7 @@ public class XCGFileLogDestination: XCGLogDestinationProtocol, CustomDebugString
 
 // MARK: - XCGLogger
 // - The main logging class
-public class XCGLogger: CustomDebugStringConvertible {
+public class XCGLogger: NSObject, CustomDebugStringConvertible {
     // MARK: - Constants
     public struct constants {
         public static let defaultInstanceIdentifier = "com.cerebralgardens.xcglogger.defaultInstance"
@@ -495,7 +495,9 @@ public class XCGLogger: CustomDebugStringConvertible {
     public var logDestinations: Array<XCGLogDestinationProtocol> = []
     
     // MARK: - Life Cycle
-    public init() {
+    override public init() {
+        super.init()
+        
         // Check if XcodeColors is installed and enabled
         if let xcodeColors = NSProcessInfo.processInfo().environment["XcodeColors"] {
             xcodeColorsEnabled = xcodeColors == "YES"
@@ -833,7 +835,7 @@ public class XCGLogger: CustomDebugStringConvertible {
     }
 
     // MARK: - DebugPrintable
-    public var debugDescription: String {
+    override public var debugDescription: String {
         get {
             var description: String = "XCGLogger: \(identifier) - logDestinations: \r"
             for logDestination in logDestinations {

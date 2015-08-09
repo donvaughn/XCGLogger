@@ -17,4 +17,4 @@ FOUNDATION_EXPORT const unsigned char XCGLoggerVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <XCGLogger/PublicHeader.h>
 
-
+#import <XCGLogger/XCGLoggerMacros.h>
