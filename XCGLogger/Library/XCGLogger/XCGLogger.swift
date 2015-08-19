@@ -19,7 +19,7 @@ public struct XCGLogDetails {
     public var date: NSDate
     public var logMessage: String
     public var functionName: String
-    public var fileName: String
+    public var fileName: NSString
     public var lineNumber: Int
 
     public init(logLevel: XCGLogger.LogLevel, date: NSDate, logMessage: String, functionName: String, fileName: String, lineNumber: Int) {
